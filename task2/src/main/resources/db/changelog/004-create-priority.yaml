@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001
+      author: omar.saad
+      #      context: create-status
+      changes:
+        - createTable:
+            tableName: priority
+            columns:
+              - column:
+                  name: id
+                  type: tinyint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(6)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 002
+      author: omar.saad
+      changes:
+#       #insert into priority
+        - insert:
+            tableName: priority
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1
+              - column:
+                  name: name
+                  value: LOW
+        - insert:
+            tableName: priority
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 2
+              - column:
+                  name: name
+                  value: MEDIUM
+        - insert:
+            tableName: priority
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 3
+              - column:
+                  name: name
+                  value: HIGH

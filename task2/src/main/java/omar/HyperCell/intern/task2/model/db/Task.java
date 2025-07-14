@@ -32,12 +32,12 @@ public class Task {
     private String description;
 
 //    @Enumerated(EnumType.STRING)
-    @Column(name = "status")
+    @Column(name = "status_id")
     @Convert(converter = StatusConverter.class)
     private Status status;
 
 //    @Enumerated(EnumType.STRING)
-    @Column(name = "priority")
+    @Column(name = "priority_id")
     @Convert(converter = PriorityConverter.class)
     private Priority priority;
 

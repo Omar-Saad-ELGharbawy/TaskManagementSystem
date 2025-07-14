@@ -5,45 +5,6 @@ databaseChangeLog:
 
       changes:
         - createTable:
-            tableName: users
-            columns:
-              - column:
-                  name: id
-                  type: INT
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-              - column:
-                  name: name
-                  type: VARCHAR(100)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: email
-                  type: VARCHAR(100)
-                  constraints:
-                    nullable: false
-                    unique: true
-
-        - createTable:
-            tableName: projects
-            columns:
-              - column:
-                  name: id
-                  type: INT
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-              - column:
-                  name: title
-                  type: VARCHAR(100)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: description
-                  type: TEXT
-
-        - createTable:
             tableName: tasks
             columns:
               - column:
@@ -60,14 +21,20 @@ databaseChangeLog:
               - column:
                   name: description
                   type: TEXT
+#              - column:
+#                  name: status
+#                  type: VARCHAR(20)
+#                  defaultValue: TODO
+#              - column:
+#                  name: priority
+#                  type: VARCHAR(10)
+#                  defaultValue: MEDIUM
               - column:
-                  name: status
-                  type: VARCHAR(20)
-                  defaultValue: TODO
+                  name: status_id
+                  type: tinyint
               - column:
-                  name: priority
-                  type: VARCHAR(10)
-                  defaultValue: MEDIUM
+                  name: priority_id
+                  type: tinyint
               - column:
                   name: due_date
                   type: DATE
@@ -88,6 +55,7 @@ databaseChangeLog:
                   type: TIMESTAMP
                   defaultValueComputed: CURRENT_TIMESTAMP
 
+
         - addForeignKeyConstraint:
             baseTableName: tasks
             baseColumnNames: assigned_to
@@ -105,3 +73,24 @@ databaseChangeLog:
             onDelete: CASCADE
             onUpdate: CASCADE
             constraintName: fk_tasks_project_id
+
+
+        - addForeignKeyConstraint:
+            baseTableName: tasks
+            baseColumnNames: status_id
+            referencedTableName: status
+            referencedColumnNames: id
+            onDelete: SET NULL
+            onUpdate: CASCADE
+            constraintName: fk_tasks_status_id
+
+        - addForeignKeyConstraint:
+            baseTableName: tasks
+            baseColumnNames: priority_id
+            referencedTableName: priority
+            referencedColumnNames: id
+            onDelete: SET NULL
+            onUpdate: CASCADE
+            constraintName: fk_tasks_priority_id
+
+

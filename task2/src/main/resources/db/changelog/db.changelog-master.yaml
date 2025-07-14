@@ -1,3 +1,13 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/001-create-users-projects-tasks.yaml
+      file: db/changelog/001-create-users.yaml
+  - include:
+      file: db/changelog/002-create-projects.yaml
+  - include:
+      file: db/changelog/003-create-status.yaml
+
+  - include:
+      file: db/changelog/004-create-priority.yaml
+
+  - include:
+      file: db/changelog/005-create-tasks.yaml
