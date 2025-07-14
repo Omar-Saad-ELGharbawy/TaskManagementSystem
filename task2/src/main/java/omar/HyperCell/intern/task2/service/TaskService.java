@@ -2,10 +2,10 @@ package omar.HyperCell.intern.task2.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import omar.HyperCell.intern.task2.enums.*;
 import omar.HyperCell.intern.task2.model.db.Task;
+import omar.HyperCell.intern.task2.model.db.enums.Priority;
+import omar.HyperCell.intern.task2.model.db.enums.Status;
 import omar.HyperCell.intern.task2.model.dto.TaskDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;

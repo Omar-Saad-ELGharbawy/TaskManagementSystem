@@ -2,12 +2,11 @@ package omar.HyperCell.intern.task2.controller;
 
 
 import lombok.RequiredArgsConstructor;
-import omar.HyperCell.intern.task2.enums.Priority;
-import omar.HyperCell.intern.task2.enums.Status;
+import omar.HyperCell.intern.task2.model.db.enums.Priority;
+import omar.HyperCell.intern.task2.model.db.enums.Status;
 import omar.HyperCell.intern.task2.model.db.Task;
 import omar.HyperCell.intern.task2.model.dto.TaskDto;
 import omar.HyperCell.intern.task2.service.TaskService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

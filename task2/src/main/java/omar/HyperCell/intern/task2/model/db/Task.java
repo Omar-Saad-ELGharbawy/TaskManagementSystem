@@ -2,11 +2,10 @@ package omar.HyperCell.intern.task2.model.db;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import omar.HyperCell.intern.task2.enums.Priority;
-import omar.HyperCell.intern.task2.enums.Status;
+import omar.HyperCell.intern.task2.model.db.enums.Priority;
+import omar.HyperCell.intern.task2.model.db.enums.Status;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 

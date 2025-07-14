@@ -1,7 +1,7 @@
 package omar.HyperCell.intern.task2.model.dto;
 
-import omar.HyperCell.intern.task2.enums.Priority;
-import omar.HyperCell.intern.task2.enums.Status;
+import omar.HyperCell.intern.task2.model.db.enums.Priority;
+import omar.HyperCell.intern.task2.model.db.enums.Status;
 
 import java.time.LocalDate;
 
