@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Getter
-public enum Priority {
+public enum Priority implements MyEnumsInterface {
     LOW(1),
     MEDIUM(2),
     HIGH(3),
@@ -28,4 +28,10 @@ public enum Priority {
     Priority(int id) {
         this.id = id;
     }
+
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
 }

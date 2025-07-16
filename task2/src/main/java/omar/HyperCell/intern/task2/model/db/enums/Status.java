@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Getter
-public enum Status {
+public enum Status implements MyEnumsInterface {
     TODO(1),
     IN_PROGRESS(2),
     DONE(3),
@@ -28,6 +28,11 @@ public enum Status {
 
     Status(int id){
         this.id = id;
+    }
+
+    @Override
+    public Integer getId() {
+        return id;
     }
 
 

@@ -2,6 +2,8 @@ package omar.HyperCell.intern.task2.controller;
 
 
 import lombok.RequiredArgsConstructor;
+import omar.HyperCell.intern.task2.exception.AppException;
+import omar.HyperCell.intern.task2.exception.ValidationException;
 import omar.HyperCell.intern.task2.model.db.Project;
 import omar.HyperCell.intern.task2.model.dto.ProjectDto;
 import omar.HyperCell.intern.task2.service.ProjectService;
@@ -25,23 +27,23 @@ public class ProjectController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Project> getProjectById(@PathVariable Long id) {
+    public ResponseEntity<Project> getProjectById(@PathVariable Long id) throws ValidationException {
         return ResponseEntity.ok(projectService.getProjectById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Project> createProject(@RequestBody ProjectDto dto) {
+    public ResponseEntity<Project> createProject(@RequestBody ProjectDto dto) throws AppException {
         Project created = projectService.createProject(dto);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Project> updateProject(@PathVariable Long id, @RequestBody ProjectDto dto) {
+    public ResponseEntity<Project> updateProject(@PathVariable Long id, @RequestBody ProjectDto dto) throws AppException {
         return ResponseEntity.ok(projectService.updateProject(id, dto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteProject(@PathVariable Long id) throws ValidationException {
         projectService.deleteProject(id);
         return ResponseEntity.noContent().build();
     }

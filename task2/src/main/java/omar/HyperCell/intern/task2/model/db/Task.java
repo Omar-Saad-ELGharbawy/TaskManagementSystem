@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import omar.HyperCell.intern.task2.model.db.converter.GenericConverter;
 import omar.HyperCell.intern.task2.model.db.converter.PriorityConverter;
 import omar.HyperCell.intern.task2.model.db.converter.StatusConverter;
 import omar.HyperCell.intern.task2.model.db.enums.Priority;
@@ -34,11 +35,13 @@ public class Task {
 //    @Enumerated(EnumType.STRING)
     @Column(name = "status_id")
     @Convert(converter = StatusConverter.class)
+//    @Convert(converter = GenericConverter.class)
     private Status status;
 
 //    @Enumerated(EnumType.STRING)
     @Column(name = "priority_id")
     @Convert(converter = PriorityConverter.class)
+//    @Convert(converter = GenericConverter.class)
     private Priority priority;
 
     @Column(name = "due_date")

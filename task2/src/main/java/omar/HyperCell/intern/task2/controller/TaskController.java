@@ -2,6 +2,8 @@ package omar.HyperCell.intern.task2.controller;
 
 
 import lombok.RequiredArgsConstructor;
+import omar.HyperCell.intern.task2.exception.AppException;
+import omar.HyperCell.intern.task2.exception.ValidationException;
 import omar.HyperCell.intern.task2.model.db.enums.Priority;
 import omar.HyperCell.intern.task2.model.db.enums.Status;
 import omar.HyperCell.intern.task2.model.db.Task;
@@ -39,23 +41,23 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Task> getTaskById(@PathVariable Long id) {
+    public ResponseEntity<Task> getTaskById(@PathVariable Long id) throws AppException {
         return ResponseEntity.ok(taskService.getTaskById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Task> createTask(@RequestBody TaskDto dto) {
+    public ResponseEntity<Task> createTask(@RequestBody TaskDto dto) throws AppException {
         Task created = taskService.createTask(dto);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Task> updateTask(@PathVariable Long id, @RequestBody TaskDto dto) {
+    public ResponseEntity<Task> updateTask(@PathVariable Long id, @RequestBody TaskDto dto) throws AppException {
         return ResponseEntity.ok(taskService.updateTask(id, dto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTask(@PathVariable Long id) throws ValidationException {
         taskService.deleteTask(id);
         return ResponseEntity.noContent().build();
     }
