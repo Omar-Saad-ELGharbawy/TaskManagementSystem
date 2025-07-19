@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>omar.HyperCell.intern</groupId>
-	<artifactId>task2</artifactId>
+	<artifactId>Backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TaskManagementSystem</name>
 	<description>Task for Hypercell Intern Using Spring Boot</description>
