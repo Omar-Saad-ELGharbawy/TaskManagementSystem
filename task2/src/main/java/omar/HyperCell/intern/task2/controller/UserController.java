@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
     @Autowired
     private final UserService userService;
@@ -29,16 +29,16 @@ public class UserController {
     public ResponseEntity<User> getUserById(@PathVariable Long id) throws AppException {
         return ResponseEntity.ok(userService.getUserById(id));
     }
-
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody UserDto dto) throws AppException {
-        return new ResponseEntity<>(userService.createUser(dto), HttpStatus.CREATED);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody UserDto dto) throws AppException {
-        return ResponseEntity.ok(userService.updateUser(id, dto));
-    }
+//
+//    @PostMapping
+//    public ResponseEntity<User> createUser(@RequestBody UserDto dto) throws AppException {
+//        return new ResponseEntity<>(userService.createUser(dto), HttpStatus.CREATED);
+//    }
+//
+//    @PutMapping("/{id}")
+//    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody UserDto dto) throws AppException {
+//        return ResponseEntity.ok(userService.updateUser(id, dto));
+//    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) throws ValidationException {
